@@ -1,19 +1,9 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./database');
+const { Sequelize } = require('sequelize');
 
-const Pelicula = sequelize.define('Pelicula', {
-    titulo: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    director: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    año: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: './database.sqlite' 
 });
 
-module.exports = Pelicula;
+module.exports = sequelize;
